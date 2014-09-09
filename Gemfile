@@ -58,6 +58,13 @@ gem 'simplecov', :require => false, :group => :test
 #
 
 
+gem 'devise'
+gem 'apns'
+
+
+
+
+
 gem 'activeadmin', github: 'gregbell/active_admin'
 # gem 'meta_search', '>= 0.9.2'
 
