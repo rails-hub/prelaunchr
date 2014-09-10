@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.11'
+ruby '1.9.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'pg'
@@ -7,13 +8,13 @@ gem 'activeadmin'
 # Gems used only for assets and not required
 # in production environments by default.
 gem 'sass-rails'
-gem "meta_search",    '>= 1.1.0.pre'
+gem "meta_search", '>= 1.1.0.pre'
 gem 'coffee-rails', '~> 3.2.1'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', :platforms => :ruby
 gem 'uglifier', '>= 1.0.3'
 
-  # Gemfile in Rails >= 3.1
+# Gemfile in Rails >= 3.1
 
 group :development do
   gem 'pry'
