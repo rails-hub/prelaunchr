@@ -1,27 +1,23 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 ruby '1.9.3'
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
 gem 'pg'
-gem 'activeadmin', '0.4.4'
+gem 'activeadmin', "0.5.1"
 # Gems used only for assets and not required
 # in production environments by default.
-gem 'sass-rails'
-gem "meta_search", '>= 1.1.0.pre'
-gem 'coffee-rails', '~> 3.2.1'
+group :assets do
+  gem 'sass-rails', '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer', :platforms => :ruby
-gem 'uglifier', '>= 1.0.3'
-
-# Gemfile in Rails >= 3.1
-
+# gem 'therubyracer', :platforms => :ruby
+  gem 'uglifier', '>= 1.0.3'
+end
 group :development do
   gem 'pry'
 end
 gem 'delayed_job_active_record'
 gem 'unicorn'
-gem 'devise'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 # To use Jbuilder templates for JSON
