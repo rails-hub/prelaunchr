@@ -24,13 +24,13 @@ class User < ActiveRecord::Base
             "image" => ActionController::Base.helpers.asset_path("refer/truman@2x.png")
         },
         {
-            'count' => 25,
+            'count' => 20,
             "html" => "Winston<br>Shave Set",
             "class" => "four",
             "image" => ActionController::Base.helpers.asset_path("refer/winston@2x.png")
         },
         {
-            'count' => 50,
+            'count' => 40,
             "html" => "One Year<br>Free Blades",
             "class" => "five",
             "image" => ActionController::Base.helpers.asset_path("refer/blade-explain@2x.png")
