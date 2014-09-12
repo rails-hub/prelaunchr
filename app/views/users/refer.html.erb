@@ -14,7 +14,10 @@
 </style>
 <div class="header">
   <div class="content">
-    <p class="logo brandon">Harry&#8217;s</p>
+    <p class="logo brandon">
+      <!--Harry&#8217;s-->
+      <!--<img src="/assets/refer/new_nav.jpg" height="254">-->
+    </p>
 
     <p class="byline brandon">THANK YOU FOR SIGNING UP</p>
   </div>
@@ -23,7 +26,9 @@
 <div class="hero">
   <div class="page-content clearfix">
     <div class="mammoth">
-      <span class="need brandon">Born & Raised <br>in America</span>
+      <span class="need brandon">
+        <!--Born & Raised <br>in America-->
+      </span>
     </div>
     <div class="share-wrap">
       <p class="why brandon">Don't leave your friends behind</p>
@@ -69,7 +74,7 @@
     <ul class="products clearfix">
       <li class="title brandon"><p class="friends">Friends Joined</p>
 
-        <p class="rewards">Harry's Product</p></li>
+        <!--<p class="rewards">Harry's Product</p></li>-->
       <% stops.each do |stop| %>
           <li class="product brandon
             <% if stop["selected"] %>selected
@@ -78,7 +83,7 @@
             <% end %>">
             <div class="circle"><%= stop["count"] %></div>
             <div class="sep"></div>
-            <p><%= stop["html"].html_safe %></p>
+            <p><%#= stop["html"].html_safe %></p>
 
             <!--<div class="tooltip">-->
               <!--<img src="<%#= stop["image"] %>" height="254">-->
@@ -111,6 +116,6 @@
 
     <!--<p class="ship brandon">We ship to the U.S. (& Canada Soon)</p>-->
     <a class="policy brandon" href="/privacy-policy" target="_blank"></a>
-    <a class="policy brandon" href="/privacy-policy" target="_blank">Harry's to '1776 Company</a>
+    <a class="policy brandon" href="/privacy-policy" target="_blank">Privacy Policy</a>
   </div>
 </div>
