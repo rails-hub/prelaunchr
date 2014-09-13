@@ -1,0 +1,140 @@
+@import "buttons";
+@import "../components/buttons";
+$primary-color: #5E6469 !default;
+@mixin text-shadow($color: #fff, $x: 0, $y: 1px, $blur: 0) {
+  text-shadow: $color $x $y $blur;
+}
+@mixin box-shadow($value: 0 1px 1px rgba(0,0,0,0.10), $value2: 0 1px 1px rgba(0,0,0,0.10)) {
+  -moz-box-sizing: $value;
+  -webkit-box-sizing: $value;
+  -o-box-sizing: $value;
+  -ms-box-sizing: $value;
+  box-sizing: $value;
+}
+@mixin text-shadow($color: #fff, $x: 0, $y: 1px, $blur: 0) {
+  text-shadow: $color $x $y $blur;
+}
+@mixin gradient($start, $end){
+  background: $start;
+  background: -webkit-gradient(linear, left top, left bottom, from($start), to($end));
+  background: -moz-linear-gradient(-90deg, $start, $end);
+  // IE 6 & 7
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
+  // IE 8
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
+}
+
+@mixin gradient($start, $end){
+  background: $start;
+  background: -webkit-gradient(linear, left top, left bottom, from($start), to($end));
+  background: -moz-linear-gradient(-90deg, $start, $end);
+  // IE 6 & 7
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
+  // IE 8
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
+}
+
+@mixin gradient($start, $end){
+  background: $start;
+  background: -webkit-gradient(linear, left top, left bottom, from($start), to($end));
+  background: -moz-linear-gradient(-90deg, $start, $end);
+  // IE 6 & 7
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
+  // IE 8
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
+}
+
+@mixin gradient($start, $end){
+  background: $start;
+  background: -webkit-gradient(linear, left top, left bottom, from($start), to($end));
+  background: -moz-linear-gradient(-90deg, $start, $end);
+  // IE 6 & 7
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
+  // IE 8
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
+}
+
+@mixin rounded($radius: 3px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin sans-family {
+  font-family: Helvetica, Arial, sans-serif;
+}
+@mixin basic-button {
+  @include rounded(200px);
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.0em;
+  @include sans-family;
+  line-height: 12px;
+  margin-right: 3px;
+  padding: 7px 16px 6px;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+}
+
+@mixin default-button {
+  @include basic-button;
+  @include gradient(lighten($primary-color, 15%), darken($primary-color, 12%));
+  @include text-shadow(#000);
+  @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.10), 0 1px 0 0px rgba(255, 255, 255, 0.2) inset);
+  border: solid 1px #484e53;
+  //  @include border-colors(#616a71, #484e53, #363b3f);
+  color: #efefef;
+
+  &:not(.disabled) {
+    &:hover {
+      @include gradient(lighten($primary-color, 18%), darken($primary-color, 9%));
+    }
+
+    &:active {
+      @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.40) inset, 0 1px 0 0px #FFF);
+      @include gradient(lighten($primary-color, 8%), darken($primary-color, 17%));
+    }
+  }
+}
+
+$primary-color: black;
+.paginated_collection_contents {
+  clear: both;
+}
+
+.pagination { 
+  float: right; 
+  font-size: 0.9em; 
+  margin-left: 10px; 
+
+  a {
+//    @include light-button;
+  }
+  
+  span.page.current {
+    @include default-button;
+  }
+  
+  a, span.page.current { 
+    @include rounded(0px);
+    margin-right: 4px; 
+    padding: 2px 5px;
+  }
+}
+
+.pagination_information { 
+  float: right;
+  margin-bottom: 5px;
+  color: #b3bcc1;
+  b { color: #5c6469; }
+}
+
+.download_links {
+  float: left;
+}

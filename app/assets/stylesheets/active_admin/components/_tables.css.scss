@@ -1,0 +1,219 @@
+// ----------------------------------- Tables 
+@import "../mixins/gradients";
+$primary-color: black;
+$primary-color: #5E6469 !default;
+$secondary-color: #f0f0f0 !default;
+$text-color: #323537 !default;
+$link-color: #38678b !default;
+$section-header-text-color: $primary-color !default;
+$current-menu-item-background: lighten($primary-color, 12%) !default;
+$hover-menu-item-background: lighten($primary-color, 12%) !default;
+$table-stripe-color: lighten($primary-color, 57%) !default;
+$table-selected-color: #d9e4ec !default;
+$error-color: #932419 !default;
+
+// Sizes
+$horizontal-page-margin: 30px !default;
+$sidebar-width: 270px !default;
+$cell-padding: 5px 10px 3px 10px !default;
+$cell-horizontal-padding: 12px !default;
+$section-padding: 15px !default;
+$text-input-horizontal-padding: 10px !default;
+
+$secondary-gradient-start: #efefef !default;
+$section-header-text-color: $primary-color !default;
+@mixin icon-size ($size) {
+  span.icon { width: $size; height: $size; }
+  span.icon svg { width: $size; height: $size; }
+}
+@mixin icon-color ($color) {
+  span.icon svg {
+    path, polygon, rect, circle { fill: $color !important; }
+  }
+}
+
+@mixin icon($color, $size) {
+  @include icon-color($color);
+  @include icon-size($size);
+}
+@mixin text-shadow($color: #fff, $x: 0, $y: 1px, $blur: 0) {
+  text-shadow: $color $x $y $blur;
+}
+@mixin box-shadow($value: 0 1px 1px rgba(0,0,0,0.10), $value2: 0 1px 1px rgba(0,0,0,0.10)) {
+  -moz-box-sizing: $value;
+  -webkit-box-sizing: $value;
+  -o-box-sizing: $value;
+  -ms-box-sizing: $value;
+  box-sizing: $value;
+}
+@mixin inset-shadow($x: 0, $y: 1px, $blur: 2px, $color: #aaa) {
+  box-shadow: inset $x $y $blur $color;
+  -moz-box-shadow: inset $x $y $blur $color;
+  -webkit-box-shadow: inset $x $y $blur $color;
+}
+
+@mixin rounded($radius: 3px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin text-shadow($color: #fff, $x: 0, $y: 1px, $blur: 0) {
+  text-shadow: $color $x $y $blur;
+}
+@mixin gradient($start, $end){
+  background: $start;
+  background: -webkit-gradient(linear, left top, left bottom, from($start), to($end));
+  background: -moz-linear-gradient(-90deg, $start, $end);
+  // IE 6 & 7
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
+  // IE 8
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
+}
+
+table tr {
+  td {
+    vertical-align: top;
+  }
+}
+
+// --------- Index Tables 
+@mixin section-header {
+//  @include secondary-gradient;
+  @include text-shadow;
+  border: solid 1px #cdcdcd;
+//  @include border-colors(#e6e6e6, #d4d4d4, #cdcdcd);
+  @include box-shadow(0 1px 3px rgba(0,0,0,0.12), 0 0 1px #FFF inset);
+
+  font-size: 1.0em;
+  font-weight: bold;
+  line-height: 18px;
+  margin-bottom: 0.5em;
+  color: $section-header-text-color;
+  @include icon($section-header-text-color, 1.0em);
+
+  padding: 5px 10px 3px 10px;
+}
+
+@mixin section-background {
+  background: #f4f4f4;
+  @include rounded(4px);
+  @include inset-shadow(0,1px,4px, #ddd);
+}
+
+@mixin section {
+  @include section-background;
+  margin-bottom: 20px;
+
+  > h3 { @include section-header; }
+
+  > div { padding: 3px $section-padding $section-padding $section-padding; }
+
+  hr {
+    border: none;
+    border-bottom: 1px solid #E8E8E8;
+  }
+}
+
+table.index_table {
+  width: 100%;
+  margin-bottom: 10px;
+  border: 0;
+  border-spacing: 0;
+
+  th { 
+    @include section-header;
+    border-right: none;
+    text-align: left;
+    padding-left: $cell-horizontal-padding;
+    padding-right: $cell-horizontal-padding;
+
+    a, a:link, a:visited {
+      color: $section-header-text-color;
+      text-decoration: none;
+      display: block;
+      white-space: nowrap;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    &.sortable a {
+      background: url(active_admin_image_path('orderable.png')) no-repeat 0 4px; padding-left: 13px;
+    }
+
+    &.sorted-asc a { background-position: 0 -27px; }
+    &.sorted-desc a {  background-position: 0 -56px;}
+
+    &.sorted-asc, &.sorted-desc {
+//      @include gradient(darken($secondary-gradient-start, 5%), darken($secondary-gradient-stop, 5%));
+    }
+    
+    &:last-child {
+      border-right: solid 1px #d4d4d4;
+    }
+    
+  }
+
+  tr.even td { background: $table-stripe-color; }
+
+  tr.selected td {
+    background: $table-selected-color;
+  }
+
+  td {
+    padding: 10px $cell-horizontal-padding 8px $cell-horizontal-padding;
+    border-bottom: 1px solid #e8e8e8;
+    vertical-align: top;
+  }
+}
+
+// --------- Tables inside Panels
+
+@mixin no-shadow {
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.panel_contents table {
+  margin-top: 5px;
+  th { 
+    padding-top: 10px;
+    background: none;
+    color: $primary-color;
+    @include no-shadow;
+    @include text-shadow;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+  }
+  tr.odd td { background: darken($table-stripe-color, 3%); }
+  tr.even td { background: $table-stripe-color; }
+}
+
+// -------------------------------------- Resource Attributes Table 
+.attributes_table { overflow: hidden; }
+
+.attributes_table table {
+  th, td {
+    padding: 8px $cell-horizontal-padding 6px $cell-horizontal-padding;
+    vertical-align: top;
+    border-bottom: 1px solid #e8e8e8; 
+  }
+  th {
+    @include no-shadow;
+    @include no-gradient;
+    width: 150px;
+    font-size: 0.9em;
+    padding-left: 0;
+    text-transform: uppercase;
+    color: $primary-color;
+    @include text-shadow;
+  }
+  td {
+    .empty {
+      color: #bbb;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+  }
+}
+
+.sidebar_section .attributes_table th { width: 50px; }

@@ -1,0 +1,82 @@
+@mixin text-shadow($color: #fff, $x: 0, $y: 1px, $blur: 0) {
+  text-shadow: $color $x $y $blur;
+}
+@mixin text-shadow($color: #fff, $x: 0, $y: 1px, $blur: 0) {
+  text-shadow: $color $x $y $blur;
+}
+@mixin no-shadow {
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+@mixin gradient($start, $end){
+  background: $start;
+  background: -webkit-gradient(linear, left top, left bottom, from($start), to($end));
+  background: -moz-linear-gradient(-90deg, $start, $end);
+  // IE 6 & 7
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
+  // IE 8
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
+}
+
+@mixin gradient($start, $end){
+  background: $start;
+  background: -webkit-gradient(linear, left top, left bottom, from($start), to($end));
+  background: -moz-linear-gradient(-90deg, $start, $end);
+  // IE 6 & 7
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
+  // IE 8
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
+}
+
+@mixin gradient($start, $end){
+  background: $start;
+  background: -webkit-gradient(linear, left top, left bottom, from($start), to($end));
+  background: -moz-linear-gradient(-90deg, $start, $end);
+  // IE 6 & 7
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
+  // IE 8
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}');
+}
+
+//&.logged_in {
+.logged_in {
+  .flash {
+    @include gradient(#f7f1d3, #f5edc5);
+    @include text-shadow(#fafafa);
+    border-bottom: 1px solid #eee098;
+    color: #cb9810;
+    font-weight: bold;
+    font-size: 1.1em;
+    line-height: 1.0em;
+    margin-bottom: 10px;
+    padding: 13px 30px 11px;
+    position: relative;
+    top: -15px;
+
+    &.flash_notice {
+      @include gradient(#dce9dd, #ccdfcd);
+      border-bottom: 1px solid #adcbaf;
+      color: #416347;
+    }
+    &.flash_error {
+      @include gradient(#f5e4e4, #f1dcdc);
+      border-bottom: 1px solid #e0c2c0;
+      color: #b33c33;
+    }
+  }
+}
+
+//&.logged_out {
+.logged_out {
+  .flash {
+    @include no-shadow;
+    @include text-shadow(#fff);
+    background: none;
+    color: #666;
+    font-weight: bold;
+    line-height: 1.0em;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+}
